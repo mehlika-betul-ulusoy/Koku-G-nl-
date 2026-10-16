@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Koku Günlüğü</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>Koku Günlüğü</h1>
+
+      <section>
+        <h2>Yeni Kayıt</h2>
+        <form id="entry-form">
+          <label>Tür
+            <select id="entry-type" required>
+              <option value="Koku">Koku</option>
+              <option value="Parfüm Deneyimi">Parfüm Deneyimi</option>
+              <option value="Koku Hafızası">Koku Hafızası</option>
+            </select>
+          </label>
+          <label>Konum Adı <input id="location-name" required /></label>
+          <div class="row">
+            <label>Enlem <input id="latitude" type="number" step="any" required /></label>
+            <label>Boylam <input id="longitude" type="number" step="any" required /></label>
+          </div>
+          <button type="button" id="use-location">Mevcut Konumu Kullan</button>
+          <label>Tarih <input id="entry-date" type="date" required /></label>
+          <label>Duygu Durumu
+            <select id="mood" required>
+              <option value="Mutlu">Mutlu</option>
+              <option value="Huzurlu">Huzurlu</option>
+              <option value="Nostaljik">Nostaljik</option>
+              <option value="Enerjik">Enerjik</option>
+              <option value="Sakin">Sakin</option>
+            </select>
+          </label>
+          <label>Koku Notaları (virgülle ayırın)
+            <input id="notes" placeholder="yasemin, vanilya..." required />
+          </label>
+          <label>Puanlama (1-5) <input id="rating" type="number" min="1" max="5" required /></label>
+          <button type="submit">Kaydet</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Arama / Filtreleme</h2>
+        <div class="filters">
+          <input id="search-text" placeholder="metin, konum, nota..." />
+          <select id="filter-mood">
+            <option value="">Tüm Duygular</option>
+            <option>Mutlu</option>
+            <option>Huzurlu</option>
+            <option>Nostaljik</option>
+            <option>Enerjik</option>
+            <option>Sakin</option>
+          </select>
+          <input id="min-rating" type="number" min="1" max="5" placeholder="Min puan" />
+          <input id="from-date" type="date" />
+          <input id="to-date" type="date" />
+        </div>
+      </section>
+
+      <section>
+        <h2>Mekan Bazlı Koku Haritası</h2>
+        <canvas id="map" width="340" height="180"></canvas>
+      </section>
+
+      <section>
+        <h2>İstatistikler</h2>
+        <ul id="stats"></ul>
+      </section>
+
+      <section>
+        <h2>Kayıtlar</h2>
+        <ul id="entry-list"></ul>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+  </html>
